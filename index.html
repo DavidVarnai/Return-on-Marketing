@@ -162,7 +162,7 @@
   .yoy-body{display:none;margin-top:14px}
   .yoy.on .yoy-body{display:block}
   .yoy-body .hint{font-size:12.5px;color:var(--slate);margin-top:10px;line-height:1.45}
-  .yoy-out{margin-top:8px;border-top:1px solid var(--line)}
+  .yoy-out{margin-top:0}
   .rom-out-3{grid-template-columns:repeat(3,1fr)}
   .rom-out-3 .k-val{font-size:26px}
   .handoff{margin-top:16px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
@@ -172,6 +172,85 @@
   .cta-list{list-style:none;margin:0 0 16px}
   .cta-list li{position:relative;padding:6px 0 6px 26px;font-size:16px}
   .cta-list li::before{content:"";position:absolute;left:0;top:13px;width:14px;height:14px;border-radius:4px;background:var(--iolite);clip-path:polygon(14% 44%, 0 60%, 40% 100%, 100% 16%, 84% 0, 40% 68%)}
+  .run-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:22px}
+  .run-row .btn{margin-top:0;border:0;cursor:pointer}
+  .linkbtn{background:none;border:0;padding:0;cursor:pointer;font-family:'Source Serif 4',Georgia,serif;font-size:14.5px;color:var(--iolite);text-decoration:underline;text-underline-offset:3px}
+  .run-err{color:var(--neg);font-size:14px;margin:10px 0 0;max-width:none}
+  .run-err:empty{display:none}
+  .rom-results{display:none;margin-top:26px;border-top:1px solid var(--line);padding-top:4px}
+  .tool.ran .rom-results{display:block;animation:fadeUp .5s ease}
+  .tool.ran #romExample{display:none}
+  .goals label{min-height:2.6em}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @keyframes flash{0%{background:rgba(200,154,60,.35)}100%{background:transparent}}
+  .k-val.flash{animation:flash 1s ease;border-radius:4px}
+  .inp input::placeholder{color:#b3b7cc}
+  .for-line{margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:#aeb6e8;position:relative;z-index:1;max-width:70ch;line-height:1.6}
+  .for-line b{color:#fff;font-weight:600}
+  .res.key2{background:#fff;border-color:var(--iolite);box-shadow:0 0 0 1px var(--iolite)}
+  .rom-read b{font-size:clamp(18px,2.4vw,21px);line-height:1.3;letter-spacing:-.01em;margin-bottom:6px}
+  .compact{margin-top:18px}
+  .compact .kpi{padding:14px 16px}
+  .k-val.pos{color:var(--pos)}.k-val.neg{color:var(--neg)}
+  .whatif{margin-top:20px;border:1px dashed var(--line);border-radius:10px;padding:16px 18px 14px;background:var(--paper)}
+  .whatif-title{font-family:'Sora',sans-serif;font-weight:600;font-size:13.5px;margin-bottom:14px}
+  .whatif .checks{margin-top:12px}
+  .more{margin-top:18px}
+  .grow-line{display:block;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);border-radius:4px}
+  .grow-line strong{font-family:'Sora',sans-serif;font-weight:700;font-size:14px}
+  .grow-line.flash{animation:flash 1s ease}
+  .plf{margin-top:20px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .plf-row{display:grid;grid-template-columns:minmax(150px,1.25fr) minmax(80px,1.6fr) 104px 104px;align-items:center;gap:0 14px;padding:9px 16px;border-top:1px solid var(--line)}
+  .plf-head{border-top:0;background:var(--iolite-deep);color:#fff;padding:9px 16px}
+  .plf-head .plf-num{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+  .plf-label{display:flex;gap:8px;font-size:14.5px;line-height:1.3}
+  .plf-label .op{font-family:'IBM Plex Mono',monospace;color:var(--slate);width:12px;flex-shrink:0}
+  .plf-label small{display:block;font-size:11.5px;color:var(--slate);line-height:1.35;margin-top:1px}
+  .plf-row.tot .plf-label{font-family:'Sora',sans-serif;font-weight:700;font-size:14px}
+  .plf-row.ded{background:var(--paper)}
+  .plf-row.ded .plf-label{color:#3c405a}
+  .plf-num{text-align:right;font-family:'IBM Plex Mono',monospace;line-height:1.25;border-radius:4px}
+  .plf-num b{display:block;font-size:14px;font-weight:600}
+  .plf-num span{font-size:11.5px;color:var(--slate)}
+  .plf-row.ded .plf-num b{font-weight:500;color:#3c405a}
+  .plf-num.neg b{color:var(--neg)}
+  .plf-num.flash{animation:flash 1s ease}
+  .plf-row.diff .plf-num:last-child b{color:var(--iolite)}
+  .plf-row.key{background:#fbfbfe}
+  .plf-row.key.tot{background:#f1f3fb}
+  .plf-bar{position:relative;height:14px}
+  .plf-bar i{position:absolute;top:0;height:10px;border-radius:3px;transition:left .3s,width .3s}
+  .plf-bar i.b-goal{top:11px;height:3px;background:repeating-linear-gradient(90deg,var(--ink) 0 4px,transparent 4px 7px);border-radius:0}
+  .b-sales{background:#272e63}.b-gp{background:#4a54a6}.b-left{background:#7d86cf}.b-ded{background:#dfe2f0}.b-mkt{background:var(--gold)}.b-profit{background:var(--pos)}
+  .plf-head small{display:block;font-size:9.5px;letter-spacing:.06em;opacity:.75;text-transform:none}
+  .plf-assume{flex-basis:100%;font-family:'Source Serif 4',Georgia,serif;font-size:12.5px}
+  .plf-foot{display:flex;flex-wrap:wrap;gap:6px 22px;padding:9px 16px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate)}
+  .plf-foot .lg{display:inline-block;width:14px;height:8px;border-radius:2px;margin-right:4px;vertical-align:0}
+  .plf-foot .lg.b-goal{height:3px;vertical-align:3px;background:repeating-linear-gradient(90deg,var(--ink) 0 4px,transparent 4px 7px)}
+  .explain{margin-top:20px;border-left:3px solid var(--gold);padding-left:16px}
+  .ex-row{display:grid;grid-template-columns:170px 1fr;gap:4px 16px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15.5px;line-height:1.5}
+  .ex-row:last-child{border-bottom:0}
+  .ex-k{font-family:'Sora',sans-serif;font-weight:700;font-size:13.5px;padding-top:2px}
+  .ex-v b{font-weight:600}
+  .plf-row.rom{background:var(--iolite-deep);color:#fff;border-top:0}
+  .plf-row.rom .plf-label{font-family:'Sora',sans-serif;font-weight:700;font-size:14px}
+  .plf-row.rom .plf-label small,.plf-row.rom .plf-num span{color:#aeb6e8}
+  .plf-row.rom .plf-num b{font-size:16px;color:#fff}
+  .plf-row.rom .plf-num:last-child b{color:#f0d79a}
+  .plf-num{align-self:start}
+  .chip{display:block;width:fit-content;margin:4px 0 0 auto;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;line-height:1.5;padding:0 6px;border-radius:999px;background:#eceef8;color:var(--iolite-deep);white-space:nowrap}
+  .chip.c-bad{background:#f7dcd9;color:#8d2f27}
+  .chip.c-warn{background:#f6e7bf;color:#7a5a12}
+  .chip.c-good{background:#d6eee2;color:#1f5c42}
+  .plf-row.flag{background:#fdf1ef;box-shadow:inset 4px 0 0 var(--neg)}
+  .plf-row.flag .plf-num:last-child b{color:var(--neg)}
+  .warn-txt{color:var(--neg)!important;font-weight:600}
+  .plf-row.rom{padding-top:12px;padding-bottom:12px}
+  .plf-row.rom .plf-label{align-self:center}
+  .bench-note{margin:16px 0 0;padding:12px 16px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font-size:13.5px;line-height:1.55;color:var(--slate);max-width:none}
+  .bench-note b{font-family:'Sora',sans-serif;font-weight:700;color:var(--ink);font-size:12.5px}
+  .src-note{font-size:12.5px;color:var(--slate);line-height:1.55;max-width:72ch}
+  sup a{text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:11px}
   .rom-read{margin-top:16px;font-size:15px;border-left:3px solid var(--gold);padding:4px 0 4px 14px;max-width:none}
 
   /* ---------- three lenses ---------- */
@@ -328,6 +407,7 @@
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
     .sbar-track > div{transition:none}
+    .tool.ran .rom-results,.k-val.flash,.grow-line.flash,.plf-num.flash{animation:none}
     html{scroll-behavior:auto}
   }
 
@@ -336,6 +416,17 @@
     .lenses{grid-template-columns:1fr}
     .zone-grid{grid-template-columns:1fr}
     .three,.rom-out-3{grid-template-columns:1fr}
+    .plf-row{grid-template-columns:1fr 74px 74px;gap:4px 8px;padding:9px 12px}
+    .plf-bar{grid-column:1 / -1;grid-row:2}
+    .plf-head .plf-bar,.plf-head > div:nth-child(2){display:none}
+    .plf-label{font-size:13.5px}
+    .plf-row.rom .plf-bar{display:none}
+    .ex-row{grid-template-columns:1fr}
+    .plf-num b{font-size:13px}
+    .compact .kpi{padding:10px 10px}
+    .compact .k-val{font-size:19px}
+    .compact .k-label{font-size:9.5px;letter-spacing:.04em}
+    .compact .k-note{font-size:11.5px}
     .zoom{display:none}
     .res-grid{grid-template-columns:1fr 1fr}
     .rom-out-4{grid-template-columns:1fr 1fr}
@@ -387,7 +478,8 @@
     <div class="logo-chip"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAckAAABqCAYAAADXwKqFAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDkuMC1jMDAwIDc5LjE3MWMyN2ZhYiwgMjAyMi8wOC8xNi0yMjozNTo0MSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3YzgxZGVkOC04ODRkLTRlZDQtYmM5NC05ZTk3MDc4ZmZiNjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QzExMTEwRDBGNkU2MTFFRjhCMDBEMkMyN0RGMDFBOTQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjhFRTdGOENGNkU2MTFFRjhCMDBEMkMyN0RGMDFBOTQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4NjE4OWM4Yi0xYmY4LTRkY2UtYTYyOS00ZGE0ZmIxMWMxYTIiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo2MzgyMDg2ZS1jZjI1LTRiNDYtYmQy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" alt="Iolite Ventures"></div>
     <div class="eyebrow">A Resource for Business Owners &amp; CEOs</div>
     <h1>Return on Marketing: Are You Looking at the Bigger Picture?</h1>
-    <p class="header-sub">Campaign reports tell you what happened last month. This guide — with two calculators you can run on your own numbers — shows what your marketing is really producing, and what you can afford to invest in growth.</p>
+    <p class="header-sub">Campaign reports tell you what happened last month. This guide shows what your marketing is really producing, and what you can afford to invest in growth.</p>
+    <p class="for-line" id="forLine">Especially relevant if your customers come back: <b>home services</b>, <b>eCommerce</b>, and <b>B2B services</b>.</p>
     <div class="byline">
       <img class="byline-photo" src="data:image/jpeg;base64,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" alt="David Varnai Clavier">
       <div>
@@ -412,146 +504,129 @@
     <li>Did the extra money we put into marketing last year actually pay?</li>
     <li>What can we afford to spend to win one new customer?</li>
   </ol>
-  <p>These are business questions, not campaign questions — and the answers are sitting in your P&amp;L and your customer data. This guide works through each one, with two calculators so you can run your own numbers as you go.</p>
+  <p>The answers sit in your P&amp;L and your customer data. Two calculators below let you run your own numbers.</p>
   <div class="jump">
     <a href="#quickcheck">Quick check: marketing vs. your P&amp;L ↓</a>
     <a href="#calculator">Customer economics calculator ↓</a>
   </div>
 
   <h3>The first number I look at</h3>
-  <p>When I assess a company's marketing, I don't open the ad accounts. I take two numbers from the P&amp;L — total revenue and total marketing investment — and divide.</p>
+  <p>I don't start in the ad accounts. I take two numbers from the P&amp;L and divide.</p>
   <div class="answer">
     <div class="formula"><span class="f-name">ROM</span><span class="op">=</span><span>Total Revenue</span><span class="op">÷</span><span>Total Marketing Investment</span></div>
-    <div class="big">A $5M company investing $500K in marketing runs at 10:1 — $10 of revenue for every $1 of marketing.</div>
-    <p>"Total" means total: paid media, marketing salaries, agency fees, creative, software. Count only ad spend and the ratio flatters you.</p>
+    <div class="big">A $5M company investing $500K in marketing runs at 10:1: $10 of revenue for every $1 of marketing.</div>
+    <p>Count everything: media, salaries, agencies, creative, software.</p>
   </div>
-  <p style="margin-top:22px">Return on Marketing is an efficiency ratio, not true ROI: not all of that revenue came from this year's marketing, and revenue isn't profit. So the ratio doesn't answer anything by itself. It starts the right conversation — <b>is that level of investment right for this business?</b></p>
+  <p style="margin-top:22px">Return on Marketing is an efficiency ratio, not ROI, and revenue isn't profit. But it starts the right conversation: <b>is that level of investment right for this business?</b></p>
 </section>
 
 <!-- 2. SIZE THE INVESTMENT -->
 <section class="reveal">
   <div class="kicker">Questions 1 &amp; 2 · Is It the Right Size? Did It Pay?</div>
   <h2>Two numbers decide it: the growth you want and the profit you keep</h2>
-  <p>Marketing exists to produce growth, so start there. <b>How much do you want sales to grow next year?</b> For an established business, that one figure puts you in one of three postures, each with a typical level of investment. The ranges come from the benchmarks in <a class="comp-link" href="#">How Much Should You Spend on Marketing?</a></p>
+  <p><a class="comp-link" href="#">How Much Should You Spend on Marketing?</a> showed that budget should follow ambition. This is the next step: checking that ambition against your own P&amp;L. Start with one figure: <b>how much do you want sales to grow next year?</b></p>
 
   <div class="zone-grid">
-    <div class="zone"><div class="z-swatch" style="background:#b9c0e4"></div><div class="z-range">Under 5% growth</div><div class="z-name">Maintenance</div><div class="z-desc">Marketing at 3–5% of sales. Not optional — it's roughly what it takes to stay relevant and hold your position.</div></div>
-    <div class="zone"><div class="z-swatch" style="background:#7d86cf"></div><div class="z-range">5–15% growth</div><div class="z-name">Healthy growth</div><div class="z-desc">Marketing at 6–8% of sales. Steady, compounding growth ahead of the market.</div></div>
-    <div class="zone"><div class="z-swatch" style="background:#4a54a6"></div><div class="z-range">15%+ growth</div><div class="z-name">Aggressive growth</div><div class="z-desc">Marketing at 8–12% of sales. Taking share, entering new segments, outrunning competitors.</div></div>
+    <div class="zone"><div class="z-swatch" style="background:#b9c0e4"></div><div class="z-range">Under 5% growth</div><div class="z-name">Maintenance</div><div class="z-desc">Marketing at 3–5% of sales</div></div>
+    <div class="zone"><div class="z-swatch" style="background:#7d86cf"></div><div class="z-range">5–15% growth</div><div class="z-name">Healthy growth</div><div class="z-desc">Marketing at 6–8% of sales</div></div>
+    <div class="zone"><div class="z-swatch" style="background:#4a54a6"></div><div class="z-range">15%+ growth</div><div class="z-name">Aggressive growth</div><div class="z-desc">Marketing at 8–12% of sales</div></div>
   </div>
 
-  <p><b>These apply to established businesses.</b> For a startup or a new market, all bets are off: you'll often invest 12–20% of sales or more, frequently at a loss, to get the flywheel turning. That can be exactly right — as long as it's a decision and not an accident.</p>
-
-  <p>Then check the goal against your P&amp;L. Sales come in, the cost of delivering comes out, overhead comes out, marketing comes out — and what's left is yours. Flip that around:</p>
+  <p><b>These apply to established businesses.</b> A startup or new market often takes 12–20% or more, frequently at a loss, to get the flywheel turning.</p>
+  <p>Then check it against the P&amp;L. What's left after the cost of delivering and overhead has to cover both marketing and profit:</p>
   <div class="formula"><span class="f-name">What the P&amp;L can fund</span><span class="op">=</span><span>Gross Profit</span><span class="op">−</span><span>Overhead</span><span class="op">−</span><span>Profit You Want to Keep</span></div>
-  <p>How firmly to hold that line depends on who is paying for the growth. <b>A bootstrapped business</b> — growing out of its own profits — should treat it as a real limit, because every marketing dollar comes out of what the owners would otherwise keep. With outside capital, you can choose to run past it for a while.</p>
+  <p><b>A bootstrapped business</b> should treat that as a real limit. With outside capital, you can choose to run past it for a while.</p>
 
   <div class="tool" id="quickcheck">
     <div class="tool-title">Quick check: does your marketing fit your growth goal — and your P&amp;L?</div>
-    <p class="tool-sub">Have your Profit &amp; Loss statement handy. The example numbers are hypothetical — replace them with yours. Nothing you enter is stored or sent anywhere.</p>
+    <p class="tool-sub">A thinking tool, not a forecast. About two minutes; nothing you enter is stored or sent.</p>
 
-    <div class="step-label" style="margin-top:4px"><span>1</span> Your growth goal</div>
-    <div class="field">
-      <label for="romGrow">I want sales to grow <span class="mono" id="romGrowVal">15%</span> next year <span class="posture" id="romPosture">Aggressive growth</span></label>
-      <input type="range" id="romGrow" min="0" max="40" step="1" value="15" aria-label="Sales growth goal, percent year over year">
-      <div class="checks">
-        <label class="toggle sm"><input type="checkbox" id="romStartup"> We're a startup or entering a new market</label>
-        <label class="toggle sm"><input type="checkbox" id="romBoot" checked> We fund growth from our own profits (no outside capital)</label>
-      </div>
-    </div>
-
-    <div class="step-label"><span>2</span> From your P&amp;L — last 12 months</div>
+    <div class="step-label" style="margin-top:4px"><span>1</span> Four numbers from your P&amp;L — last 12 months</div>
     <div class="two">
       <div class="field">
         <label for="romRev">Total sales</label>
-        <div class="inp"><span>$</span><input id="romRev" inputmode="numeric" value="5,000,000"></div>
-        <div class="hint">Look for <b>Total Income</b> or Total Revenue.</div>
+        <div class="inp"><span>$</span><input id="romRev" inputmode="numeric" placeholder="e.g. 5,000,000"></div>
+        <div class="hint">Look for <b>Total Income</b>.</div>
       </div>
       <div class="field">
         <label for="romGp">Gross profit</label>
-        <div class="inp"><span>$</span><input id="romGp" inputmode="numeric" value="2,500,000"></div>
-        <div class="hint">Look for <b>Gross Profit</b>: sales minus the direct cost of delivering what you sell.</div>
+        <div class="inp"><span>$</span><input id="romGp" inputmode="numeric" placeholder="e.g. 2,500,000"></div>
+        <div class="hint">Look for <b>Gross Profit</b>.</div>
       </div>
       <div class="field">
         <label for="romExp">Total operating expenses</label>
-        <div class="inp"><span>$</span><input id="romExp" inputmode="numeric" value="2,150,000"></div>
-        <div class="hint">Look for <b>Total Expenses</b>, just above Net Operating Income. Marketing is usually inside it.</div>
+        <div class="inp"><span>$</span><input id="romExp" inputmode="numeric" placeholder="e.g. 2,150,000"></div>
+        <div class="hint">Look for <b>Total Expenses</b>, just above Net Operating Income.</div>
       </div>
       <div class="field">
         <label for="romMkt">Of that, marketing</label>
-        <div class="inp"><span>$</span><input id="romMkt" inputmode="numeric" value="600,000"></div>
-        <div class="hint">Advertising, agencies, marketing staff, marketing software. Often mostly one <b>Advertising</b> line.</div>
+        <div class="inp"><span>$</span><input id="romMkt" inputmode="numeric" placeholder="e.g. 600,000"></div>
+        <div class="hint">Ads, agencies, marketing staff, software. Often one <b>Advertising</b> line.</div>
       </div>
     </div>
+    <div class="run-row">
+      <button class="btn" id="romRun" type="button">Show me where I stand</button>
+      <button class="linkbtn" id="romExample" type="button">No P&amp;L handy? Try it with example numbers</button>
+    </div>
+    <p class="run-err" id="romErr" role="alert"></p>
 
-    <div class="yoy on" id="yoy">
-      <label class="toggle sm"><input type="checkbox" id="romYoy" checked> <span><b>Compare with the year before</b> — shows what your extra marketing dollars brought back</span></label>
-      <div class="yoy-body">
-        <div class="three">
+    <div class="rom-results" id="romResults">
+      <div class="step-label"><span>2</span> Where you stand</div>
+      <div class="plf" id="plf" aria-live="polite"></div>
+
+      <div class="whatif">
+        <div class="whatif-title">Move the two goals and watch the "At your goals" column change.</div>
+        <div class="two goals">
           <div class="field">
-            <label for="romRev0">Prior-year total sales</label>
-            <div class="inp"><span>$</span><input id="romRev0" inputmode="numeric" value="4,300,000"></div>
+            <label for="romNet">Profit I want to keep, as % of sales: <span class="mono" id="romNetVal">10%</span></label>
+            <input type="range" id="romNet" min="-30" max="30" step="1" value="10" aria-label="Target operating profit as percent of sales">
           </div>
           <div class="field">
-            <label for="romMkt0">Prior-year marketing</label>
-            <div class="inp"><span>$</span><input id="romMkt0" inputmode="numeric" value="380,000"></div>
-          </div>
-          <div class="field">
-            <label for="romNoi0">Prior-year operating profit</label>
-            <div class="inp"><span>$</span><input id="romNoi0" inputmode="numeric" value="430,000"></div>
+            <label for="romGrow">Sales growth I want: <span class="mono" id="romGrowVal">15%</span> next year <span class="posture" id="romPosture">Aggressive growth</span></label>
+            <input type="range" id="romGrow" min="0" max="40" step="1" value="15" aria-label="Sales growth goal, percent year over year">
           </div>
         </div>
-        <div class="hint">Run your P&amp;L with a "previous year" comparison column and read the same lines. Operating profit is <b>Net Operating Income</b>.</div>
+        <div class="checks">
+          <label class="toggle sm"><input type="checkbox" id="romBoot" checked> We fund growth from our own profits</label>
+          <label class="toggle sm"><input type="checkbox" id="romStartup"> We're a startup or entering a new market</label>
+        </div>
       </div>
-    </div>
 
-    <div class="step-label"><span>3</span> The profit you want to keep</div>
-    <div class="field">
-      <label for="romNet">Keep <span class="mono" id="romNetVal">10%</span> of sales as profit</label>
-      <input type="range" id="romNet" min="0" max="30" step="1" value="10" aria-label="Target operating profit as percent of sales">
-      <div class="hint">Operating profit, before interest and taxes. Move it and watch what the P&amp;L can fund.</div>
-    </div>
+      <div class="explain" id="romRead"></div>
+      <p class="bench-note" id="romBench" style="display:none"></p>
 
-    <div class="step-label"><span>4</span> Where you stand</div>
-    <div class="scale-title">Marketing as a share of sales</div>
-    <div class="scale">
-      <div class="scale-track">
-        <div class="scale-band" id="scBand"></div>
-        <div class="scale-mk mk-today" id="scToday"><span></span></div>
-        <div class="scale-mk mk-fund" id="scFund"><span></span></div>
-      </div>
-      <div class="tick-row" id="scTicks"></div>
-    </div>
-    <div class="legend"><span><i style="background:#7d86cf"></i>Typical range for this goal</span><span><i style="background:var(--gold)"></i>Today</span><span><i style="background:var(--iolite-deep)"></i>What your P&amp;L can fund</span></div>
-    <p class="hint" style="margin:8px 0 20px;max-width:none">The typical range is an average across many businesses — a reference, not a verdict. High gross margins can fund more; thin margins, less. The P&amp;L line is the one that's specific to you.</p>
+      <div class="yoy" id="yoy">
+        <label class="toggle sm"><input type="checkbox" id="romYoy"> <span><b>Go deeper: did last year's extra marketing pay?</b> Add three prior-year numbers.</span></label>
+        <div class="yoy-body">
+          <div class="three">
+            <div class="field">
+              <label for="romRev0">Prior-year total sales</label>
+              <div class="inp"><span>$</span><input id="romRev0" inputmode="numeric" placeholder="e.g. 4,300,000"></div>
+            </div>
+            <div class="field">
+              <label for="romMkt0">Prior-year marketing</label>
+              <div class="inp"><span>$</span><input id="romMkt0" inputmode="numeric" placeholder="e.g. 380,000"></div>
+            </div>
+            <div class="field">
+              <label for="romNoi0">Prior-year operating profit</label>
+              <div class="inp"><span>$</span><input id="romNoi0" inputmode="numeric" placeholder="e.g. 430,000"></div>
+            </div>
+          </div>
+          <div class="hint">From a P&amp;L with a "previous year" column. Operating profit is <b>Net Operating Income</b>.</div>
 
-    <div class="rom-out rom-out-4">
-      <div class="kpi"><div class="k-label">Marketing today</div><div class="k-val" id="romNow">—</div><div class="k-note" id="romNowNote">—</div></div>
-      <div class="kpi"><div class="k-label">Your P&amp;L can fund</div><div class="k-val" id="romBudget">—</div><div class="k-note" id="romBudgetNote">—</div></div>
-      <div class="kpi"><div class="k-label">Typical for this goal</div><div class="k-val" id="romNeed">—</div><div class="k-note" id="romNeedNote">—</div></div>
-      <div class="kpi"><div class="k-label">Break-even ceiling</div><div class="k-val" id="romCeil">—</div><div class="k-note" id="romCeilNote">—</div></div>
-    </div>
-
-    <div class="pl-bars" style="margin-top:22px">
-      <div class="sbar" style="margin-bottom:10px">
-        <div class="sbar-top"><span class="sbar-name">Where each sales dollar goes today</span><span class="sbar-val" id="plTodayTxt"></span></div>
-        <div class="sbar-track" id="plToday"></div>
-      </div>
-      <div class="legend"><span><i style="background:var(--cost)"></i>Cost to deliver</span><span><i style="background:#8e93ad"></i>Overhead</span><span><i style="background:var(--gold)"></i>Marketing</span><span><i style="background:var(--iolite)"></i>Profit</span></div>
-    </div>
-    <p class="rom-read" id="romRead"></p>
-
-    <div class="yoy-out" id="yoyOut">
-      <div class="step-label"><span>5</span> What the extra marketing brought back</div>
-      <div class="rom-out rom-out-3">
-        <div class="kpi"><div class="k-label">Sales growth</div><div class="k-val" id="yGrow">—</div><div class="k-note" id="yGrowNote"></div></div>
-        <div class="kpi"><div class="k-label">Each extra $1 of marketing brought in</div><div class="k-val" id="yMarg">—</div><div class="k-note" id="yMargNote"></div></div>
-        <div class="kpi"><div class="k-label">Operating profit</div><div class="k-val" id="yProfit">—</div><div class="k-note" id="yProfitNote"></div></div>
-      </div>
-      <p class="rom-read" id="yRead"></p>
-      <div class="handoff" id="yHand">
-        <p id="yHandTxt"></p>
-        <button class="preset" id="yHandBtn" type="button"></button>
+          <div class="yoy-out" id="yoyOut">
+            <div class="rom-out rom-out-3" style="margin-top:18px">
+              <div class="kpi"><div class="k-label">Sales growth</div><div class="k-val" id="yGrow">—</div><div class="k-note" id="yGrowNote"></div></div>
+              <div class="kpi"><div class="k-label">Each extra $1 of marketing brought in</div><div class="k-val" id="yMarg">—</div><div class="k-note" id="yMargNote"></div></div>
+              <div class="kpi"><div class="k-label">Operating profit</div><div class="k-val" id="yProfit">—</div><div class="k-note" id="yProfitNote"></div></div>
+            </div>
+            <p class="rom-read" id="yRead"></p>
+            <div class="handoff" id="yHand">
+              <p id="yHandTxt"></p>
+              <button class="preset" id="yHandBtn" type="button"></button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -559,8 +634,7 @@
   <div class="callout">
     <div class="c-label">What the P&amp;L Can't Tell You</div>
     <p class="pull">Growth is often paid for with this year's profit.</p>
-    <p>When a business pushes marketing up to grow faster, sales usually respond — and profit often dips, because new customers often don't pay back in their first year. That isn't failure. It's a trade: this year's margin for customers who keep buying.</p>
-    <p>Whether it's a <b>good</b> trade is something the P&amp;L can't tell you. It depends on what those customers are worth after the first sale.</p>
+    <p>Push marketing up and sales usually respond, while profit dips: the next dollar rarely works as hard as the last, and new customers often don't pay back in year one. Whether that's a good trade depends on what those customers are worth after the first sale.</p>
   </div>
 </section>
 
@@ -568,52 +642,54 @@
 <section class="reveal">
   <div class="kicker">Question 3 · What Can You Afford to Pay for a Customer?</div>
   <h2>The first transaction isn't the whole relationship</h2>
-  <p class="lede">The most expensive mistake I see isn't overspending on acquisition. It's judging acquisition against the first sale — and walking away from customers who would have been worth winning.</p>
-  <p>Four questions change the math: <b>How often do they come back? How much do they spend? What does it cost to serve them? How long do they stay?</b> And one discipline: measure lifetime value in <b>contribution, not revenue</b>. Every repeat purchase still costs something to deliver.</p>
+  <p class="lede">The most expensive mistake I see isn't overspending on acquisition. It's judging acquisition against the first sale, and walking away from customers who were worth winning.</p>
+  <p>What matters is how often customers come back, what they spend, and what it costs to serve them. Measure it in <b>contribution, not revenue</b>: every repeat purchase still costs something to deliver.</p>
 
-  <h3>Home services: a first appointment that barely pays</h3>
-  <p>In a home services business, acquiring a customer can cost <b>30–40% of the revenue from their first appointment</b>. Add the cost of delivering the service and the first job barely breaks even. But many customers come back about once a year, and a typical relationship lasts around five years.</p>
+  <h3>Home services: a first job that barely pays</h3>
+  <p>In home services, acquiring a customer often costs <b>a third to half of the revenue from their first job</b>.<sup><a href="#src-home">1</a></sup> After the cost of delivering it, the first job barely pays. What changes the math is how many customers come back: 10–15% for a typical operator, 60% or more for the best.</p>
 
   <div class="case">
     <div class="case-head">
       <div class="case-title">Same customer, two ways of looking at it</div>
       <span class="tag">Hypothetical figures</span>
     </div>
-    <p class="case-sub">Illustration only: a $300 first appointment, 35% contribution margin, acquisition cost of $105 (35% of first-appointment revenue), one visit a year for five years. Not actual company data.</p>
+    <p class="case-sub">Illustration only: a $450 first job, 40% left after the cost of delivering it, $150 to acquire the customer, and a 60% chance of rebooking each year (about 2.3 jobs over five years).</p>
 
     <div class="sbar">
-      <div class="sbar-top"><span class="sbar-name">Judged on the first appointment</span><span class="sbar-val">$300 revenue → <span style="color:var(--slate)">$0 left after acquisition cost</span></span></div>
-      <div class="sbar-track" data-total="1500">
-        <div class="c-del" data-w="195" title="Delivery cost $195"></div>
-        <div class="c-cac" data-w="105" title="Acquisition cost $105"></div>
+      <div class="sbar-top"><span class="sbar-name">Judged on the first job</span><span class="sbar-val">$450 revenue → <span style="color:var(--slate)">$30 left after acquisition cost</span></span></div>
+      <div class="sbar-track" data-total="1037.5">
+        <div class="c-del" data-w="270" title="Delivery cost $270"></div>
+        <div class="c-cac" data-w="150" title="Acquisition cost $150"></div>
+        <div class="c-left" data-w="30" title="Left after acquisition cost $30"></div>
       </div>
     </div>
     <div class="sbar">
-      <div class="sbar-top"><span class="sbar-name">Judged on a five-year relationship</span><span class="sbar-val">$1,500 revenue → <span class="pos">$420 left after acquisition cost</span></span></div>
-      <div class="sbar-track" data-total="1500">
-        <div class="c-del" data-w="975" title="Delivery cost $975"></div>
-        <div class="c-cac" data-w="105" title="Acquisition cost $105"></div>
-        <div class="c-left" data-w="420" title="Contribution after CAC $420"></div>
+      <div class="sbar-top"><span class="sbar-name">Judged on five years (about 2.3 jobs)</span><span class="sbar-val">$1,038 revenue → <span class="pos">$265 left after acquisition cost</span></span></div>
+      <div class="sbar-track" data-total="1037.5">
+        <div class="c-del" data-w="622.5" title="Delivery cost $623"></div>
+        <div class="c-cac" data-w="150" title="Acquisition cost $150"></div>
+        <div class="c-left" data-w="265" title="Left after acquisition cost $265"></div>
       </div>
     </div>
-    <div class="legend"><span><i style="background:var(--cost)"></i>Cost to deliver</span><span><i style="background:var(--gold)"></i>Acquisition cost</span><span><i style="background:var(--iolite)"></i>Contribution after acquisition</span></div>
+    <div class="legend"><span><i style="background:var(--cost)"></i>Cost to deliver</span><span><i style="background:var(--gold)"></i>Acquisition cost</span><span><i style="background:var(--iolite)"></i>Left after acquisition cost</span></div>
   </div>
-  <p>Same customer, same $105. On the first view, marketing is a cost center. On the second, it buys $105 a year in contribution for a one-time $105. That's the difference between cutting the program and scaling it.</p>
+
+  <p>Same customer, same $150. On the first job the business keeps $30. Over five years it keeps $265, nearly nine times as much, even with four in ten customers dropping off each year. That's the difference between cutting the program and scaling it.</p>
+  <p class="src-note" id="src-home"><sup>1</sup> Carpet Cleaner Marketing Masters, <a href="https://carpetcleanermarketingmasters.com/carpet-cleaning-benchmark-report/" target="_blank" rel="noopener">2026 Carpet Cleaning Benchmark Report</a>, via <a href="https://cleanfax.com/the-marketing-benchmarks-carpet-cleaning-was-missing/" target="_blank" rel="noopener">Cleanfax</a>. Operator benchmarks, not a survey. The $450 job follows the Chem-Dry FY2024 franchise average the report cites.</p>
 
   <h3>eCommerce: repeat purchasing at Zenni Optical</h3>
-  <p>At Zenni, repeat behavior was central to how we evaluated acquisition. Customers typically came back for more eyewear, on average about once every two years. Knowing the order value and the repeat cycle let us value a customer beyond the first order — and made acquisition investments defensible that looked marginal against a single sale.</p>
+  <p>At Zenni, customers typically came back for more eyewear about once every two years. Knowing the order value and that repeat cycle made acquisition investments defensible that looked marginal against a single sale.</p>
 
-  <div class="warn">
-    <div class="w-label">The strategic implication</div>
-    <p>When you know what a customer is worth over time, you decide how aggressively to invest — instead of letting a first-order ROAS target decide for you. Companies that know this number can outbid competitors who don't, and still make money.</p>
-  </div>
+  <h3>Worth it, and can you afford to wait?</h3>
+  <p>Lifetime value tells you whether a customer is worth buying. <b>Payback</b> tells you whether you can afford to wait. Recovering the cost in 30 days and recovering it in two years are very different businesses, and if you fund growth from profits, payback is often the real limit.</p>
+  <p>Companies that know these numbers can outbid competitors who don't, and still make money.</p>
 </section>
 
 <!-- 4. CALCULATOR -->
 <section class="reveal" id="calculator">
   <div class="kicker">Run Your Own Numbers</div>
   <h2>Customer economics calculator</h2>
-  <p>This is where the trade gets tested. Change any input and every result updates. The defaults are hypothetical — use your own averages, and be honest about margin and repeat behavior.</p>
+  <p>Change any input and every result updates. It shows how the pieces move together; it isn't a number to manage to. The defaults are hypothetical.</p>
 
   <div class="calc">
     <div class="presets" role="group" aria-label="Example scenarios">
@@ -645,7 +721,7 @@
         <label for="m">Average contribution margin</label>
         <div class="inp"><input id="m" inputmode="decimal"><span>%</span></div>
         <input type="range" id="m_r" min="1" max="95" step="1" aria-label="Contribution margin slider">
-        <div class="hint">What's left of a sale after the cost to deliver it <b>and</b> the costs that rise with volume — card fees, commissions, extra crew. Usually lower than gross margin. The quick check above can estimate it from your P&amp;L.</div>
+        <div class="hint">What's left after the cost to deliver and costs that rise with volume. Usually lower than gross margin.</div>
       </div>
       <div class="field">
         <label for="c">Customer acquisition cost (CAC)</label>
@@ -665,7 +741,7 @@
             <input type="range" id="r_r" min="0" max="99" step="1" aria-label="Retention slider">
             <div class="hint">Share of active customers who are still buying a year later.</div>
           </div>
-          <p class="hint" style="font-size:13px;color:var(--slate);align-self:center;margin:0">With retention on, the years input becomes a <b>planning horizon</b>. Customers drop off gradually each year instead of all staying for a fixed term — so the two aren't double-counted.</p>
+          <p class="hint" style="font-size:13px;color:var(--slate);align-self:center;margin:0">With retention on, years become a <b>planning horizon</b>: customers drop off gradually each year.</p>
         </div>
       </div>
     </div>
@@ -677,7 +753,7 @@
         <div class="res"><div class="r-n">3 · Lifetime contribution (pre-CAC)</div><div class="r-v" id="o3">—</div><div class="r-s" id="o3s"></div></div>
         <div class="res"><div class="r-n">4 · CAC vs. first transaction</div><div class="r-v" id="o4">—</div><div class="r-s" id="o4s"></div></div>
         <div class="res key"><div class="r-n">5 · Contribution after CAC</div><div class="r-v" id="o5">—</div><div class="r-s" id="o5s"></div></div>
-        <div class="res"><div class="r-n">Payback on CAC</div><div class="r-v" id="o7">—</div><div class="r-s" id="o7s"></div></div>
+        <div class="res key2"><div class="r-n">6 · Payback on CAC</div><div class="r-v" id="o7">—</div><div class="r-s" id="o7s"></div></div>
       </div>
 
       <div class="verdict" id="verdict">
@@ -687,19 +763,17 @@
 
       <div class="chart-wrap">
         <div class="chart-title">Cumulative contribution vs. acquisition cost</div>
-        <p class="chart-sub">Bars show contribution earned by the end of each year. The gold line is what you paid to acquire the customer.</p>
+        <p class="chart-sub">Bars: contribution earned by the end of each year. Gold line: what you paid to acquire the customer.</p>
         <svg id="chart" viewBox="0 0 800 280" role="img" aria-label="Cumulative contribution by year compared with customer acquisition cost"></svg>
       </div>
 
       <details class="assume">
-        <summary>How this is calculated (and what it leaves out)</summary>
+        <summary>How this is calculated</summary>
         <ul>
-          <li><b>Standard mode:</b> expected purchases <code>= purchases per year × years</code> (minimum one — the first transaction). Revenue <code>= purchases × transaction value</code>.</li>
-          <li><b>Retention mode:</b> year-one purchases equal the yearly rate; each later year is multiplied by retention again: <code>purchases = rate × (1 + r + r² + … + r^(years−1))</code>, minimum one. The horizon caps the projection; retention does the decaying.</li>
-          <li><b>Contribution</b> <code>= revenue × contribution margin</code>. Use the margin left after delivery and volume-driven costs, not gross margin — otherwise results will look better than reality. It's the money left to cover acquisition, fixed overhead, and profit, not net profit.</li>
-          <li><b>Contribution after CAC</b> <code>= lifetime contribution − CAC</code>. <b>LTV : CAC</b> uses contribution, not revenue.</li>
-          <li><b>Payback</b> is when cumulative contribution first covers CAC, assuming purchases are spread evenly through each year.</li>
-          <li>Not included: discounting future cash, price changes, referrals, rising service costs, or overhead. Treat results as directional estimates, not forecasts or guarantees.</li>
+          <li><b>Purchases</b> <code>= purchases per year × years</code>, minimum one. With retention on, each later year is multiplied by the retention rate.</li>
+          <li><b>Contribution</b> <code>= revenue × contribution margin</code>. It pays for acquisition, fixed overhead, and profit; it isn't net profit.</li>
+          <li><b>Payback</b> is when cumulative contribution first covers CAC. Under about 12 months reads as quick, over about 24 as slow.</li>
+          <li>Not included: discounting, price changes, referrals, overhead. These are directional estimates, not forecasts.</li>
         </ul>
       </details>
     </div>
@@ -710,119 +784,63 @@
 <section class="reveal">
   <div class="kicker">Where Campaign Metrics Fit</div>
   <h2>So where does ROAS belong?</h2>
-  <p>You've now looked at marketing from the business level and the customer level. Most reporting lives at a third: the channel.</p>
   <div class="formula"><span class="f-name">ROAS</span><span class="op">=</span><span>Ad-Attributed Revenue</span><span class="op">÷</span><span>Ad Spend</span></div>
-  <p>It's a valuable number for the people running media. But campaigns do different jobs, and judging them all by ROAS quietly starves the programs that create next quarter's demand.</p>
+  <p>ROAS is the right number for the people running media. But campaigns do different jobs: awareness is judged on qualified reach, traffic on relevant visits, conversion on acquisition cost, retention on repeat purchases. And a high click-through rate shows interest in the ad, not that the visitor is profitable.</p>
 
-
-  <p>An awareness campaign should be judged on qualified reach. A traffic campaign on relevant visits and what people do after the click — a high click-through rate shows interest in the ad, not that the visitor is qualified or profitable. A conversion campaign on acquisition cost. A retention program on repeat purchases. The measure follows the job.</p>
-
-  <h3>Three levels, three different questions</h3>
-  <div class="lenses">
-    <div class="lens">
-      <div class="l-scope">Business level</div>
-      <div class="l-name">ROM</div>
-      <div class="l-full">Return on Marketing</div>
-      <dl>
-        <dt>Answers</dt><dd>Is total marketing investment in proportion to the business?</dd>
-        <dt>Owned by</dt><dd>CEO, CFO, board</dd>
-        <dt>Blind spot</dt><dd>Doesn't separate marketing-driven revenue from the rest. Ignores margin.</dd>
-      </dl>
-    </div>
-    <div class="lens">
-      <div class="l-scope">Channel level</div>
-      <div class="l-name">ROAS</div>
-      <div class="l-full">Return on Ad Spend</div>
-      <dl>
-        <dt>Answers</dt><dd>Is this campaign doing its job efficiently?</dd>
-        <dt>Owned by</dt><dd>Media and channel managers</dd>
-        <dt>Blind spot</dt><dd>Measures attributed first-transaction revenue. Ignores what happens next.</dd>
-      </dl>
-    </div>
-    <div class="lens hl">
-      <div class="l-scope">Customer level</div>
-      <div class="l-name">LTV</div>
-      <div class="l-full">Customer Lifetime Value</div>
-      <dl>
-        <dt>Answers</dt><dd>What is a new customer worth, and what can we pay to win one?</dd>
-        <dt>Owned by</dt><dd>Leadership, with finance</dd>
-        <dt>Blind spot</dt><dd>Built on assumptions about the future. Needs regular reality checks.</dd>
-      </dl>
-    </div>
-  </div>
-
-  <div class="callout">
-    <div class="c-label">The Division of Labor</div>
-    <p class="pull">Campaign managers optimize channels. Business leaders decide whether the overall investment supports profitable growth.</p>
-    <p>Problems start when the second question gets answered with the first one's data.</p>
-  </div>
-</section>
-
-<!-- 6. LEAN IN / FIX FIRST -->
-<section class="reveal">
-  <div class="kicker">Align Investment With Ambition</div>
-  <h2>When to lean in — and when to fix first</h2>
-  <p>Put the P&amp;L view and the customer view together, and the decision gets clearer. Most businesses land in one of two positions.</p>
-
-  <div class="split">
-    <div class="side go">
-      <div class="s-label">Can lean in</div>
-      <div class="s-head">Higher acquisition costs are justified</div>
-      <ul>
-        <li>Strong contribution margins</li>
-        <li>Customers who reliably come back</li>
-        <li>Capacity to deliver more without breaking service</li>
-        <li>Cash flow that can carry the payback period</li>
-      </ul>
-    </div>
-    <div class="side fix">
-      <div class="s-label">Fix first</div>
-      <div class="s-head">Improve the economics before scaling spend</div>
-      <ul>
-        <li>Thin margins after delivery costs</li>
-        <li>Weak repeat behavior or high churn</li>
-        <li>Operations already at or near capacity</li>
-        <li>Payback longer than the business can finance</li>
-      </ul>
-    </div>
-  </div>
-
-  <p>Capacity gets overlooked most. I've watched businesses buy demand they couldn't serve well — and the poor experiences cost them the repeat customers that made the math work in the first place.</p>
-  <p><b>The goal is not the highest possible ROAS.</b> It's an acquisition strategy the business can sustain, sized to the growth you're actually trying to achieve.</p>
+  <table class="resp-table">
+    <thead><tr><th>Level</th><th>Metric</th><th>Answers</th><th>Blind spot</th></tr></thead>
+    <tbody>
+      <tr><td class="job" data-h="Level">Business</td><td class="mono" data-h="Metric">ROM</td><td data-h="Answers">Is total marketing in proportion to the business?</td><td data-h="Blind spot">Ignores margin and what drove the revenue</td></tr>
+      <tr><td class="job" data-h="Level">Channel</td><td class="mono" data-h="Metric">ROAS</td><td data-h="Answers">Is this campaign doing its job?</td><td data-h="Blind spot">Ignores what happens after the first sale</td></tr>
+      <tr><td class="job" data-h="Level">Customer</td><td class="mono" data-h="Metric">LTV</td><td data-h="Answers">What is a customer worth, and what can we pay for one?</td><td data-h="Blind spot">Built on assumptions about the future</td></tr>
+    </tbody>
+  </table>
+  <p><b>Campaign managers optimize channels. Business leaders decide whether the overall investment supports profitable growth.</b> The goal is not the highest possible ROAS. It's an acquisition strategy the business can sustain.</p>
 </section>
 
 <!-- 7. FIVE QUESTIONS -->
 <section class="reveal">
   <div class="kicker">Before Your Next Budget Decision</div>
   <h2>Five questions every business owner should answer</h2>
-  <p>If you ran both calculators, you already have rough answers to most of these. Write them down — they're the agenda for your next budget conversation.</p>
   <ol class="steps">
     <li>
       <div class="s-title">What is our total marketing investment, and how does it compare with revenue?</div>
-      <p>Count everything, not just ad spend. It's the baseline for every decision after it.</p>
+      <p>Count everything, not just ads. It's the baseline for every other decision.</p>
     </li>
     <li>
       <div class="s-title">What does a typical customer spend with us over the next five years?</div>
-      <p>If you don't know, your acquisition targets are being set by the first sale by default. Pull repeat behavior from your customer data.</p>
+      <p>Without it, the first sale sets your acquisition targets by default.</p>
     </li>
     <li>
       <div class="s-title">How much contribution profit does that customer generate?</div>
-      <p>Revenue flatters. Contribution is what's actually available to pay for acquisition, overhead, and profit.</p>
+      <p>Revenue flatters. Contribution is what pays for acquisition, overhead, and profit.</p>
     </li>
     <li>
       <div class="s-title">How much can we sustainably invest to acquire a customer?</div>
-      <p>Your ceiling on acquisition cost — set by contribution, payback time, and cash. Know it and you can bid with confidence.</p>
+      <p>Your ceiling, set by contribution, payback, and cash.</p>
     </li>
     <li>
       <div class="s-title">Is our investment aligned with our growth goal and our capacity?</div>
-      <p>An aggressive goal on a cautious budget, or an aggressive budget the operation can't absorb — either way, one has to change before the money is spent.</p>
+      <p>If the goal and the budget don't match, or operations can't absorb the growth, one has to change first.</p>
     </li>
   </ol>
-
   <div class="answer">
-    <div class="big">Better growth decisions come from the economics of the whole customer relationship — not individual transactions or campaigns.</div>
-    <p>Campaign data tells you what happened. Customer economics tells you what you can afford to make happen next.</p>
+    <div class="big" style="margin-bottom:0">Better growth decisions come from the economics of the whole customer relationship, not individual transactions or campaigns.</div>
   </div>
+</section>
+
+<!-- 8. WHAT THE CALCULATORS CAN'T SEE -->
+<section class="reveal">
+  <div class="kicker">Where the Real Work Is</div>
+  <h2>The model is the easy part</h2>
+  <p>These calculators show you how to think about the decision. They can't make it, because they average over what matters most:</p>
+  <ul class="inputs-list">
+    <li>Which channels still have room</li>
+    <li>How fast returns fall as spend scales</li>
+    <li>Which customers come back</li>
+    <li>How much overhead really grows with sales</li>
+  </ul>
+  <p>Two businesses with the same P&amp;L can need opposite decisions. That's where a growth plan is won or lost, and it's the work I do with clients.</p>
 </section>
 
 <!-- CTA -->
@@ -833,13 +851,13 @@
     <div class="consult-author">
       <img src="data:image/jpeg;base64,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" alt="David Varnai Clavier">
       <div>
-        <p>If you're planning your next stage of growth, I'd be happy to compare notes on your marketing investment, customer economics, and the opportunities worth pursuing. Bring your P&amp;L. In 30 minutes we'll work through:</p>
+        <p>If you're planning your next stage of growth, I'd be happy to compare notes on your marketing investment, customer economics, and the opportunities worth pursuing. Bring your P&amp;L. In 30 minutes we'll look past the averages at:</p>
         <ul class="cta-list">
-          <li>What your growth goal really calls for</li>
-          <li>What your P&amp;L can fund without starving profit</li>
-          <li>What you can afford to pay for a customer — and where the upside is</li>
+          <li>Where your marketing still has room to grow</li>
+          <li>What your P&amp;L can really carry</li>
+          <li>What a customer is worth, and what that lets you spend to win one</li>
         </ul>
-        <p>You'll be talking with me directly. No sales team, no pitch deck.</p>
+        <p>You'll be talking with me directly.</p>
         <a class="btn" id="bookBtn" href="#talk">Book a 30-Minute Growth Planning Conversation
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
@@ -899,21 +917,85 @@
     { max: Infinity, name: 'Aggressive growth', lo: 8, hi: 12 }
   ];
   var STARTUP = { name: 'Startup / new market', lo: 12, hi: 20 };
+  // Realism bars (planning assumptions). Added spend usually returns less than the current average.
+  // ok: extra dollars need at most 70% of today's average return -> realistic; up to 100% -> a stretch; above -> unlikely.
+  // With prior-year numbers, last year's actual return on extra dollars is the yardstick instead (stretch up to 125% of it).
+  var REALISM = {
+    smallJump: 0.15,   // spend increases up to 15% can reasonably hold today's return
+    okAtDouble: 0.6,   // if spend doubles, new dollars are expected to return ~60% of today's average
+    stretchBand: 0.3,  // how far above the "ok" bar still counts as a stretch
+    yoyOk: 1.0, yoyStretch: 1.25   // with prior-year numbers: compared with last year's actual return on extra dollars
+  };
   function postureFor(g){ return POSTURES.filter(function(p){ return g < p.max; })[0]; }
   document.querySelectorAll('.comp-link').forEach(function(a){ if (CFG.COMPANION_URL) { a.href = CFG.COMPANION_URL; a.target = '_blank'; a.rel = 'noopener'; } });
 
   var $ = function(id){ return document.getElementById(id); };
   var romMoney = ['romRev','romGp','romExp','romMkt','romRev0','romMkt0','romNoi0'].map($);
   var romNet = $('romNet'), romGrow = $('romGrow'), romStartup = $('romStartup'), romBoot = $('romBoot'), romYoy = $('romYoy');
-  var handoffPct = null;
+  var handoffPct = null, ran = false;
+  var EXAMPLE = { romRev: 5000000, romGp: 2500000, romExp: 2150000, romMkt: 600000, romRev0: 4300000, romMkt0: 380000, romNoi0: 430000 };
+  function inputsOk(){
+    var R = num($('romRev').value), GP = num($('romGp').value), E = num($('romExp').value), M = num($('romMkt').value);
+    return R > 0 && GP > 0 && GP <= R && E >= 0 && M >= 0 && M <= E;
+  }
+  function flashChanges(fn){
+    var els = Array.prototype.slice.call(document.querySelectorAll('#quickcheck .k-val')), before = els.map(function(e){ return e.textContent; });
+    fn();
+    els.forEach(function(e, i){ if (ran && e.textContent !== before[i]) { e.classList.remove('flash'); void e.offsetWidth; e.classList.add('flash'); } });
+  }
+  function runQuick(scroll){
+    if (!inputsOk()) { $('romErr').textContent = 'Enter all four numbers first. Gross profit can’t exceed sales, and marketing can’t exceed total operating expenses.'; return; }
+    $('romErr').textContent = ''; ran = true; $('quickcheck').classList.add('ran'); romCalc();
+    if (scroll) $('romResults').scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
 
-  function kMoney(x){ var n = x < 0, a = Math.abs(x), s = a >= 1e6 ? '$' + fmtN(a/1e6, 2) + 'M' : a >= 1e4 ? '$' + fmtN(a/1e3, 0) + 'K' : '$' + fmtN(a, 0); return n ? '−' + s : s; }
+  function kMoney(x){ var n = x < 0, a = Math.abs(x), s = a >= 1e6 ? '$' + fmtN(a/1e6, 2) + 'M' : a >= 1e4 ? '$' + fmtN(a/1e3, 0) + 'K' : a >= 1e3 ? '$' + fmtN(a/1e3, 1) + 'K' : '$' + fmtN(a, 0); return n ? '−' + s : s; }
   function signed(x){ return (x >= 0 ? '+' : '') + kMoney(x); }
-  function dollars(x){ return '$' + x.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
-  function plBar(id, R, cogs, ovh, mkt, profit){
-    var parts = [['c-del', cogs, 'Cost to deliver'], ['c-ovh', ovh, 'Overhead'], ['c-cac', mkt, 'Marketing'], [profit >= 0 ? 'c-left' : 'c-neg', Math.abs(profit), profit >= 0 ? 'Profit' : 'Loss']];
-    var total = Math.max(R, cogs + ovh + mkt);
-    $(id).innerHTML = parts.map(function(p){ return '<div class="' + p[0] + '" style="width:' + (Math.max(0, p[1]) / total * 100) + '%" title="' + p[2] + ': ' + kMoney(p[1]) + '"></div>'; }).join('');
+  // Per-dollar returns are shown rounded: these are directional, not precise.
+  function dollars(x){ return x >= 20 ? '$' + Math.round(x).toLocaleString('en-US') : '$' + (Math.round(x * 10) / 10).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+  /* P&L funnel: sales at the top, each deduction below, today vs. at-your-goals */
+  var plPrev = {};
+  function renderPL(R, cogs, GP, ovh, left, M, profit, fund, t, typ, Rg){
+    var pc = function(x){ return x / R * 100; }, pt = function(x){ var v = pc(x); return (fmtN(v, Math.abs(v) < 10 && v % 1 ? 1 : 0) + '%').replace('-', '−'); };
+    var k = Rg / R, reach = fund > 0, gM = reach ? fund * k : 0, gP = reach ? t * Rg : left * k;
+    var pcg = function(x){ return x / Rg * 100; }, ptg = function(x){ var v = pcg(x); return (fmtN(v, Math.abs(v) < 10 && v % 1 ? 1 : 0) + '%').replace('-', '−'); };
+    // [key, kind, label, sub, today, goal, barStart%, barWidth%, barClass, goalStart%, goalWidth%]
+    var rows = [
+      ['sales', 'tot', 'Sales', '', R, Rg, 0, 100, 'b-sales'],
+      ['cogs',  'ded', 'Cost to deliver', '', cogs, cogs * k, pc(GP), pc(cogs), 'b-ded'],
+      ['gp',    'tot', 'Gross profit', '', GP, GP * k, 0, pc(GP), 'b-gp'],
+      ['ovh',   'ded', 'Overhead', 'operating expenses other than marketing', ovh, ovh * k, pc(Math.max(0, left)), pc(Math.min(ovh, GP)), 'b-ded'],
+      ['left',  'tot', 'Left for marketing and profit', '', left, left * k, 0, pc(Math.max(0, left)), 'b-left'],
+      ['mkt',   'ded key', 'Marketing', typ, M, gM, pc(Math.max(0, profit)), pc(Math.min(M, Math.max(0, left))), 'b-mkt', pcg(Math.max(0, gP)), pcg(gM)],
+      ['profit','tot key', 'Profit', '', profit, gP, 0, pc(Math.max(0, profit)), 'b-profit', 0, pcg(Math.max(0, gP))]
+    ];
+    var h = '<div class="plf-row plf-head"><div></div><div></div><div class="plf-num">Today</div><div class="plf-num">At your goals<small>' + (Rg > R ? 'next year' : 'same sales') + '</small></div></div>';
+    rows.forEach(function(r){
+      var ded = r[1].indexOf('ded') === 0, changed = r[1].indexOf('key') > -1 && Math.abs(r[4] / R - r[5] / Rg) > 0.001;
+      var chipFor = function(key){
+        if (key === 'sales' && Rg > R * 1.001) return '<em class="chip">▲ ' + fmtN((Rg / R - 1) * 100, 0) + '%</em>';
+        if (key === 'mkt' && M > 0 && reach) { var d = gM - M; if (Math.abs(d) > R * 0.002) return '<em class="chip ' + (d < 0 ? 'c-bad' : '') + '">' + (d < 0 ? '▼ ' : '▲ ') + kMoney(Math.abs(d)) + (d < 0 ? ' less' : ' more') + '</em>'; }
+        if (key === 'profit' && reach) { var dp = gP - profit; if (Math.abs(dp) > R * 0.002) return '<em class="chip">' + (dp < 0 ? '▼ ' : '▲ ') + kMoney(Math.abs(dp)) + '</em>'; }
+        return '';
+      };
+      var cell = function(v, k, pf, chip){
+        var txt = (ded && Math.abs(v) >= 0.5 ? '−' : '') + kMoney(Math.abs(v)).replace('−', '') , neg = !ded && v < 0, fl = ran && plPrev[k] !== undefined && plPrev[k] !== txt; plPrev[k] = txt;
+        return '<div class="plf-num' + (neg ? ' neg' : '') + (fl ? ' flash' : '') + '"><b>' + (neg ? '−' : '') + txt.replace('−−', '−') + '</b><span>' + pf(v) + '</span>' + (chip || '') + '</div>';
+      };
+      var bar = '<div class="plf-bar"><i class="' + r[8] + '" style="left:' + r[6] + '%;width:' + Math.max(0, r[7]) + '%"></i>' +
+                (r.length > 9 ? '<i class="b-goal" style="left:' + r[9] + '%;width:' + Math.max(0, r[10]) + '%"></i>' : '') + '</div>';
+      var flag = (r[0] === 'mkt' && M > 0 && reach && gM < M - R * 0.002) || (r[0] === 'profit' && !reach);
+      var flagTxt = r[0] === 'profit' ? 'Profit goal out of reach at these margins' : Rg > R * 1.001 ? 'More sales from less marketing' : 'Same sales from less marketing';
+      h += '<div class="plf-row ' + r[1] + (changed ? ' diff' : '') + (flag ? ' flag' : '') + '"><div class="plf-label"><span class="op">' + (r[0] === 'sales' ? '' : ded ? '−' : '=') + '</span><span>' + r[2] + (r[3] ? '<small>' + r[3] + '</small>' : '') + (flag ? '<small class="warn-txt">' + flagTxt + '</small>' : '') + '</span></div>' + bar + cell(r[4], r[0] + 'a', pt) + (!reach && (r[0] === 'mkt' || r[0] === 'profit') ? '<div class="plf-num"><b>—</b><span>out of reach</span></div>' : cell(r[5], r[0] + 'b', ptg, chipFor(r[0]))) + '</div>';
+    });
+    var romA = M > 0 ? dollars(R / M) : '—', romB = gM > 0 ? dollars(Rg / gM) : '—';
+    var fa = ran && plPrev.romb !== undefined && plPrev.romb !== romB; plPrev.romb = romB;
+    var rl = M > 0 && gM > 0 ? (Rg / gM) / (R / M) - 1 : null, romChip = '', romNote = 'sales per $1 of marketing';
+    if (rl !== null && rl > 0.02) { var big = rl >= 1, amt = big ? fmtN(rl + 1, 1) + '× today' : fmtN(rl * 100, 0) + '% better'; romChip = '<em class="chip ' + (rl > 0.25 ? 'c-bad' : 'c-warn') + '">▲ ' + amt + '</em>'; romNote = big ? 'each dollar must return ' + fmtN(rl + 1, 1) + ' times what it does today' : 'each dollar must work ' + fmtN(rl * 100, 0) + '% harder than today'; }
+    else if (rl !== null && rl < -0.02) { romChip = '<em class="chip c-good">▼ ' + fmtN(-rl * 100, 0) + '% slack</em>'; romNote = 'can slip ' + fmtN(-rl * 100, 0) + '% and still hit both goals'; }
+    h += '<div class="plf-row rom"><div class="plf-label"><span class="op"></span><span>Return on marketing<small>' + romNote + '</small></span></div><div class="plf-bar"></div><div class="plf-num"><b>' + romA + '</b><span>today</span></div><div class="plf-num' + (fa ? ' flash' : '') + '"><b>' + romB + '</b><span>required</span>' + romChip + '</div></div>';
+    h += '<div class="plf-foot"><span class="plf-assume">“At your goals” assumes cost to deliver and overhead stay the same share of sales.</span><span><i class="lg b-mkt"></i><i class="lg b-profit"></i>Today</span><span><i class="lg b-goal"></i>At your goals</span></div>';
+    $('plf').innerHTML = h;
   }
   function placeMarker(id, pct, smax, label){
     var mk = $(id), sp = mk.firstElementChild, x = Math.max(0, Math.min(100, pct / smax * 100));
@@ -921,71 +1003,87 @@
     sp.className = x < 22 ? 'al-l' : x > 78 ? 'al-r' : 'al-c';
   }
 
-  function romCalc(){
+  function romCalc(){ flashChanges(romCalcInner); }
+  function romCalcInner(){
     var R = num($('romRev').value), GP = num($('romGp').value), E = num($('romExp').value), M = num($('romMkt').value),
         t = +romNet.value / 100, g = +romGrow.value, startup = romStartup.checked, boot = romBoot.checked, tp = Math.round(t * 100);
     var P = startup ? STARTUP : postureFor(g);
-    $('romGrowVal').textContent = g + '%'; $('romPosture').textContent = P.name; $('romNetVal').textContent = tp + '%';
+    $('romGrowVal').textContent = g + '%'; $('romPosture').textContent = P.name; $('romNetVal').textContent = (tp < 0 ? '−' + (-tp) : tp) + '%' + (tp < 0 ? ' (a planned loss)' : '');
     $('yoy').classList.toggle('on', romYoy.checked);
+    if (!ran) return;
 
     if (!(R > 0) || !(GP > 0) || GP > R || !(E >= 0) || !(M >= 0) || M > E) {
-      ['romNow','romNeed','romBudget','romCeil'].forEach(function(id){ $(id).textContent = '—'; });
-      ['romNowNote','romNeedNote','romBudgetNote','romCeilNote','plTodayTxt'].forEach(function(id){ $(id).textContent = ''; });
-      $('plToday').innerHTML = ''; $('yoyOut').style.display = 'none';
-      $('romRead').textContent = 'Check the numbers: gross profit can’t exceed sales, and marketing is part of total operating expenses, so it can’t be larger than them.';
+      $('plf').innerHTML = ''; $('yoyOut').style.display = 'none'; $('romBench').style.display = 'none';
+      $('romRead').innerHTML = 'Check the numbers: gross profit can’t exceed sales, and marketing is part of total operating expenses, so it can’t be larger than them.';
       return;
     }
     var gm = GP / R, cogs = R - GP, ovh = E - M, profit = GP - E, ceiling = GP - ovh, fund = ceiling - t * R,
-        lo = P.lo / 100 * R, hi = P.hi / 100 * R, mPct = M / R * 100, fPct = Math.max(0, fund) / R * 100;
+        Rg = R * (1 + g / 100), lo = P.lo / 100 * Rg, hi = P.hi / 100 * Rg, mPct = M / R * 100, fPct = Math.max(0, fund) / R * 100;
     var range = kMoney(lo) + '–' + kMoney(hi).replace('$', '');
 
-    $('romNow').textContent = kMoney(M);
-    $('romNowNote').textContent = fmtN(mPct, 1) + '% of sales · ROM ' + fmtN(R / Math.max(M, 1), 1) + ' : 1';
-    $('romBudget').textContent = fund > 0 ? kMoney(fund) : '$0';
-    $('romBudgetNote').textContent = fund > 0 ? fmtN(fPct, 1) + '% of sales, while keeping ' + tp + '% profit' : 'A ' + tp + '% profit isn’t reachable at today’s sales';
-    $('romNeed').textContent = range;
-    $('romNeedNote').textContent = P.lo + '–' + P.hi + '% of sales · ' + P.name.toLowerCase();
-    $('romCeil').textContent = ceiling > 0 ? kMoney(ceiling) : '$0';
-    $('romCeilNote').textContent = ceiling > 0 ? 'Spend more than this and the business loses money' : 'Overhead alone uses up all gross profit';
+    renderPL(R, cogs, GP, ovh, ceiling, M, profit, fund, t, '', Rg);
 
-    var smax = Math.ceil(Math.max(25, mPct, fPct, P.hi) * 1.05 / 5) * 5;
-    $('scBand').style.left = (P.lo / smax * 100) + '%'; $('scBand').style.width = ((P.hi - P.lo) / smax * 100) + '%';
-    placeMarker('scToday', mPct, smax, 'Today ' + fmtN(mPct, 1) + '%');
-    placeMarker('scFund', fPct, smax, 'P&L can fund ' + fmtN(fPct, 1) + '%');
-    var ticks = ''; for (var k = 0; k <= 5; k++) ticks += '<span>' + fmtN(smax * k / 5, 0) + '%</span>'; $('scTicks').innerHTML = ticks;
-
-    plBar('plToday', R, cogs, ovh, M, profit);
-    $('plTodayTxt').textContent = 'Profit ' + kMoney(profit) + ' (' + fmtN(profit / R * 100, 1) + '%)';
-
-    /* --- main reading: the P&L line drives it; the typical range is context --- */
-    var goalTxt = startup ? 'A startup or new-market push' : 'A ' + g + '% growth goal', head, body;
-    var yoyHint = romYoy.checked ? ' Step 5 shows what last year’s increase brought back.' : ' Tick “Compare with the year before” above to see what the spend is bringing back.';
+    /* --- explanation: short, below the table. Anchored on the business's own numbers. --- */
+    // Principle: added spend usually returns less than the current average, and the bigger the jump, the bigger the drop.
+    var romNow = M > 0 ? R / M : Infinity, fundG = fund * (Rg / R), romNeed = fund > 0 ? Rg / fundG : Infinity, lines = [];
+    var pGoal = tp >= 0 ? tp + '% profit' : 'a planned ' + (-tp) + '% loss';
+    var dS = Rg - R, dM = fundG - M, mShare = fmtN(mPct, mPct < 10 ? 1 : 0) + '%', sameRom = M * (Rg / R),
+        R0y = num($('romRev0').value), M0y = num($('romMkt0').value),
+        lastMarg = romYoy.checked && R0y > 0 && M0y >= 0 && M - M0y > 0 && R - R0y > 0 ? (R - R0y) / (M - M0y) : null, real;
+    var give = startup ? (boot ? 'At this stage that usually means accepting a loss for a while. Set the profit goal to the loss you can fund from your own cash.' : 'At this stage that usually means a planned loss funded by capital. Set the profit goal to the loss you’re prepared to fund.')
+             : boot ? 'Funding growth from profits, plan on a lower profit goal for a year, lower overhead, or slower growth.' : 'Lower the profit goal, cut overhead, or fund the gap with outside capital.';
+    var grows = dS > R * 0.001, hasM = M > 0, lowShare = hasM && mPct < POSTURES[0].lo;
     if (fund <= 0) {
-      head = 'The constraint isn’t marketing.';
-      body = 'Even with zero marketing, overhead leaves less than ' + tp + '% profit. Gross margin or overhead has to improve before the P&L can fund growth at that profit level — or the profit goal needs to be one the business can support today.';
-      if (startup) body += ' At the startup stage that’s common: you’re investing ahead of profit. Know how much loss you’re choosing to fund, and for how long.';
-    } else if (M > fund * 1.02) {
-      head = 'You’re investing ' + kMoney(M - fund) + ' past what your P&L funds at ' + tp + '% profit.';
-      body = 'That isn’t automatically wrong — it’s often the price of growth. But it should be a decision, not a default. ';
-      body += startup ? 'At the startup stage it’s normal to invest ahead of profit; know the amount and how long you can carry it.'
-            : boot ? 'When growth is funded from your own profits, that ' + kMoney(M - fund) + ' comes straight out of what you keep, so it has to be buying customers worth having.'
-            : 'With outside capital, running past the line can be a deliberate bet — as long as it’s buying growth.';
-      body += yoyHint;
-    } else if (M < lo && fund >= lo) {
-      head = 'You’re under-invested for this goal — and you have room.';
-      body = goalTxt + ' typically calls for ' + range + ' a year. You’re at ' + kMoney(M) + ', and your P&L can fund up to ' + kMoney(fund) + ' while still keeping ' + tp + '% profit. That gap is the most likely reason growth feels harder than it should.';
-    } else if (fund < lo) {
-      head = 'Your growth goal is bigger than your P&L can carry today.';
-      body = goalTxt + ' typically calls for ' + range + ' a year, but keeping ' + tp + '% profit leaves ' + kMoney(fund) + ' for marketing. ';
-      if (startup) body += boot ? 'Investing ahead of profit is normal at this stage — but without outside capital, the gap comes out of your own cash. Decide how much you’ll fund, and for how long.' : 'At this stage the gap is the investment you’re choosing to make to build the flywheel. Know the number and how long you can carry it.';
-      else body += 'Three honest options: accept lower profit for a period while you grow, improve margin or overhead to free up room, or reset the goal.' + (boot ? ' Funding growth from profits, lean toward the second and third — grow into the budget rather than ahead of it.' : '');
+      var shortBy = t * R + M - ceiling;
+      lines.push(['Today', 'After cost to deliver and overhead, ' + fmtN(Math.max(0, ceiling) / R * 100, 1) + '% of sales is left for marketing and profit together. That’s less than ' + pGoal + ' before any marketing.']);
+      lines.push(['What it means', 'The constraint isn’t marketing; it’s margin or overhead. ' + (M > 0 ? 'Cutting marketing wouldn’t get you there and would likely cost sales. To keep ' + pGoal + ' and today’s marketing' : 'To keep ' + pGoal) + ', you’d need about <b>' + kMoney(shortBy) + '</b> more gross profit or less overhead. Until then, set a profit goal the business can support.']);
     } else {
-      head = 'Your investment fits your P&L' + (fund - M > R * 0.005 ? ' — with ' + kMoney(fund - M) + ' of room.' : '.');
-      body = 'You’re at ' + kMoney(M) + ' against the ' + kMoney(fund) + ' your P&L can fund at ' + tp + '% profit.';
-      body += M > hi ? ' That’s above the typical range for this goal, but your margins support it.' : ' That’s in line with the typical range for this goal.';
-      body += ' The next question is whether each dollar is winning customers worth having.';
+      // 1. today
+      var tolS = R * 0.005;
+      if (M - fund > tolS) lines.push(['Today', 'You spend ' + kMoney(M - fund) + ' more on marketing than your P&L can fund at ' + pGoal + '.']);
+      else if (fund - M > tolS) lines.push(['Today', 'Your marketing fits your P&L, with ' + kMoney(fund - M) + ' of room at ' + pGoal + '.']);
+      else lines.push(['Today', 'Your marketing fits your P&L at ' + pGoal + '.']);
+      // 2. what growth takes at today's return
+      if (hasM && grows) lines.push(['To grow ' + g + '%', lowShare
+        ? 'Marketing is only ' + mShare + ' of sales, so most of your revenue isn’t coming from it. Today’s ' + dollars(romNow) + ' per marketing dollar won’t hold as you add spend, so don’t plan around it.'
+        : 'This year each marketing dollar brought in ' + dollars(romNow) + ' in sales (marketing at ' + mShare + ' of sales). At that same return, ' + kMoney(Rg) + ' in sales takes about <b>' + kMoney(sameRom) + '</b> in marketing, ' + kMoney(sameRom - M) + ' more than today.']);
+      // 3. what the goals leave
+      var gap = sameRom - fundG, leave = 'Your goals leave <b>' + kMoney(fundG) + '</b> for marketing';
+      if (!hasM) leave += ', against none today.';
+      else if (!grows) leave += ', against ' + kMoney(M) + ' today.';
+      else if (lowShare) leave += ', ' + kMoney(dM) + ' more than today.';
+      else if (gap > tolS) leave += ', ' + kMoney(gap) + ' short of that. To hit both goals, each dollar must bring in <b>' + dollars(romNeed) + '</b>, not ' + dollars(romNow) + (profit > 0 && tp > 0 ? '. Or hold today’s return and keep about ' + fmtN(profit / R * 100, 1) + '% profit instead of ' + tp + '%.' : '.');
+      else if (gap < -tolS) leave += ', ' + kMoney(-gap) + ' more than that. Your return can slip to ' + dollars(romNeed) + ' per dollar and you’d still hit both goals.';
+      else leave += ', which matches it. You hit both goals by holding today’s return.';
+      lines.push(['What your goals leave', leave]);
+      // 4. is that realistic
+      if (!hasM) real = 'There’s no track record to judge by yet. Start with a modest budget, measure what each dollar brings in, and scale from there.';
+      else if (!grows) real = dM < -R * 0.002 ? 'Only partly. Cutting marketing by ' + kMoney(-dM) + ' usually costs some sales, so expect sales to dip rather than hold.' : 'Yes. You’re holding sales on the same budget or more.';
+      else if (dM <= R * 0.002) real = 'Unlikely. It asks for ' + kMoney(dS) + ' more in sales from ' + (dM < -R * 0.002 ? kMoney(-dM) + ' less' : 'the same') + ' marketing. Growth usually takes more spend, and added spend tends to return less at first. ' + give;
+      else {
+        // The bigger the jump in spend, the more the return on the new dollars is expected to drop.
+        var jump = Math.min(1, dM / M), needM = Math.abs(gap) <= tolS ? romNow : dS / dM, yard = lastMarg !== null ? lastMarg : romNow, ratio = needM / yard,
+            okBar = lastMarg !== null ? REALISM.yoyOk : jump <= REALISM.smallJump ? 1 : 1 - (1 - REALISM.okAtDouble) * (jump - REALISM.smallJump) / (1 - REALISM.smallJump),
+            maxBar = lastMarg !== null ? REALISM.yoyStretch : okBar + REALISM.stretchBand;
+        var selfCover = 1 / gm;
+        var basis = 'The extra ' + kMoney(dM) + ' would have to bring in ' + dollars(needM) + ' per dollar; ' + (lastMarg !== null ? 'last year’s extra dollars brought in ' + dollars(lastMarg) + '.' : 'your average today is ' + dollars(romNow) + '.');
+        if (needM < selfCover) real = 'Yes, with room to spare. Your goals leave more for marketing than this growth needs: spent in full, each extra dollar would bring in about ' + dollars(needM) + ', less than the ' + dollars(selfCover) + ' it takes to pay for itself. Spend what the growth takes and keep the rest.';
+        else if (lowShare) real = 'Plausible, but untested. ' + basis.replace('; your average today is ' + dollars(romNow) + '.', '.') + ' You have little history of marketing at this scale, so that return is a guess until you’ve measured it.';
+        else if (ratio <= okBar) real = 'Yes. ' + basis + (ratio > 0.9 ? ' The increase is small enough that holding today’s return is reasonable.' : ' Added spend usually returns less at first, and this plan allows for that.');
+        else if (ratio <= maxBar) real = 'It’s a stretch. ' + basis + ' Added spend usually returns less at first, and this plan leaves little room for that dip.';
+        else real = 'Unlikely. ' + basis + ' Expanded spend usually returns less, not more, at least at first. ' + give;
+        if (dM / M > 1 && needM >= selfCover) real += ' This is more than double today’s budget: ramp it in stages and measure as you go.';
+      }
+      lines.push(['Is that realistic?', real]);
+      lines.push(['What this can’t see', 'Which channels have room, how fast returns fall as you scale, and what customers are worth after the first sale. That’s where the real plan is made.']);
     }
-    $('romRead').innerHTML = '<b>' + head + '</b>' + body;
+    // general benchmark: separate note, linked to the budget resource
+    if (M > 0 && fund > 0) {
+      var typ = (startup ? 'startups and new-market pushes' : g < 5 ? 'businesses holding steady (under 5% growth)' : 'businesses growing ' + g + '% a year') + ' typically invest ' + P.lo + '–' + P.hi + '% of sales in marketing. You invest ' + mShare + (mPct > P.hi ? ', more than most.' : mPct < P.lo ? ', less than most.' : ', in line with most.');
+      $('romBench').innerHTML = '<b>General benchmark:</b> ' + typ + ' Averages vary by business model; your own numbers are the better guide. <a class="comp-link" href="' + (CFG.COMPANION_URL || '#') + '" target="_blank" rel="noopener">See How Much Should You Spend on Marketing? →</a>';
+      $('romBench').style.display = '';
+    } else $('romBench').style.display = 'none';
+    $('romRead').innerHTML = lines.map(function(l){ return '<div class="ex-row"><div class="ex-k">' + l[0] + '</div><div class="ex-v">' + l[1] + '</div></div>'; }).join('');
 
     /* --- year over year: what the extra marketing brought back --- */
     var R0 = num($('romRev0').value), M0 = num($('romMkt0').value), N0 = num($('romNoi0').value);
@@ -1027,17 +1125,22 @@
   });
   [romNet, romGrow].forEach(function(el){ el.addEventListener('input', romCalc); });
   [romStartup, romBoot, romYoy].forEach(function(el){ el.addEventListener('change', romCalc); });
-  romStartup.addEventListener('change', function(){ romGrow.disabled = romStartup.checked; });
   $('yHandBtn').addEventListener('click', function(){
     if (handoffPct === null) return;
     setVal('m', handoffPct); clearPreset(); calc();
     document.getElementById('calculator').scrollIntoView({behavior: 'smooth', block: 'start'});
   });
+  $('romRun').addEventListener('click', function(){ runQuick(true); });
+  $('romExample').addEventListener('click', function(){
+    Object.keys(EXAMPLE).forEach(function(k){ $(k).value = EXAMPLE[k].toLocaleString('en-US'); });
+    runQuick(true);
+  });
+  romMoney.slice(0, 4).forEach(function(el){ el.addEventListener('keydown', function(e){ if (e.key === 'Enter') runQuick(true); }); });
   romCalc();
 
   /* ---------- customer economics calculator ---------- */
   var PRESETS = {
-    home: { v:300, f:1,   n:5, m:35, c:105, r:75 },
+    home: { v:450, f:1,   n:5, m:40, c:150, r:60, ret:true },
     ecom: { v:90,  f:0.5, n:5, m:50, c:60,  r:60 },
     b2b:  { v:2500,f:1,   n:4, m:40, c:1800,r:80 }
   };
@@ -1054,16 +1157,17 @@
   function loadPreset(name){
     var p = PRESETS[name];
     keys.forEach(function(k){ setVal(k, p[k]); });
-    document.querySelectorAll('.preset').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.preset === name ? 'true' : 'false'); });
+    useRet.checked = !!p.ret; adv.classList.toggle('on', useRet.checked);
+    document.querySelectorAll('.presets .preset').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.preset === name ? 'true' : 'false'); });
     calc();
   }
-  function clearPreset(){ document.querySelectorAll('.preset').forEach(function(b){ b.setAttribute('aria-pressed','false'); }); }
+  function clearPreset(){ document.querySelectorAll('.presets .preset').forEach(function(b){ b.setAttribute('aria-pressed','false'); }); }
 
   keys.forEach(function(k){
     el[k].addEventListener('input', function(){ var v = num(el[k].value); if (isFinite(v)) rng[k].value = v; clearPreset(); calc(); });
     rng[k].addEventListener('input', function(){ el[k].value = rng[k].value; clearPreset(); calc(); });
   });
-  document.querySelectorAll('.preset').forEach(function(b){ b.addEventListener('click', function(){ loadPreset(b.dataset.preset); }); });
+  document.querySelectorAll('.presets .preset').forEach(function(b){ b.addEventListener('click', function(){ loadPreset(b.dataset.preset); }); });
   useRet.addEventListener('change', function(){ adv.classList.toggle('on', useRet.checked); calc(); });
 
   // Expected purchases by end of year y (1..N), continuous within year
@@ -1103,14 +1207,23 @@
              ratio: i.c > 0 ? contrib / i.c : Infinity, cacPct: i.v > 0 ? i.c / i.v * 100 : NaN, payback:payback };
   }
 
+  var PAYBACK = { fast: 12, slow: 24 };
   function verdict(o, i){
     var ratio = o.ratio, firstGap = o.firstContrib - i.c, out = {};
     if (!isFinite(ratio)) { out = {c:'var(--pos)', h:'No acquisition cost entered', b:'With zero CAC, every customer contributes positively. Enter what you actually spend to acquire one.'}; }
-    else if (ratio < 1) out = {c:'var(--neg)', h:'Not sustainable on these assumptions', b:'Over ' + i.n + ' years, a customer contributes less than it costs to acquire them. Lower acquisition cost, raise margin, or improve repeat behavior before scaling spend.'};
+    else if (ratio < 1) out = {c:'var(--neg)', h:'Not sustainable on these assumptions', b:'Over ' + i.n + (i.n === 1 ? ' year' : ' years') + ', a customer contributes less than it costs to acquire them. Lower acquisition cost, raise margin, or improve repeat behavior before scaling spend.'};
     else if (ratio < 2) out = {c:'var(--gold)', h:'Thin — recovers acquisition cost, with little room for error', b:'Lifetime contribution is ' + fmtN(ratio,1) + '× CAC. That leaves limited room to cover overhead and absorb forecast errors. Pressure-test the retention assumptions before increasing spend.'};
-    else if (ratio < 3) out = {c:'var(--iolite)', h:'Workable — economics support continued investment', b:'Lifetime contribution is ' + fmtN(ratio,1) + '× CAC. Sustainable if cash flow can carry the payback period. Improving retention is likely the highest-leverage move.'};
+    else if (ratio < 3) out = {c:'var(--iolite)', h:'Workable — economics support continued investment', b:'Lifetime contribution is ' + fmtN(ratio,1) + '× CAC. Improving retention is likely the highest-leverage move.'};
     else out = {c:'var(--pos)', h:'Strong — there may be room to invest more aggressively', b:'Lifetime contribution is ' + fmtN(ratio,1) + '× CAC. If these assumptions hold and operations can absorb more volume, you may be under-investing in acquisition.'};
-    if (isFinite(ratio) && ratio >= 1 && firstGap < 0) out.b += ' Note: the first transaction alone doesn’t cover CAC — judged on first-order ROAS, this program would look like a loser.';
+    // Payback thresholds (months) are planning assumptions. Edit in PAYBACK.
+    if (isFinite(ratio) && ratio >= 1 && o.payback !== null && o.payback > 0) {
+      var mo = Math.ceil(o.payback * 12), when = mo < 24 ? 'about ' + mo + ' months' : 'about ' + fmtN(o.payback, 1) + ' years';
+      if (mo > PAYBACK.slow) {
+        if (ratio >= 2) { out.c = 'var(--gold)'; out.h = 'Valuable customer, slow payback'; out.b = 'Lifetime contribution is ' + fmtN(ratio, 1) + '× CAC.'; }
+        out.b += ' The catch is time: it takes ' + when + ' to earn back the acquisition cost. That’s cash tied up — a real constraint if you’re funding growth from profits, however good the lifetime value looks.';
+      } else if (mo <= PAYBACK.fast) out.b += ' Payback is quick — ' + when + ' — so the cash recycles into the next customer.';
+      else out.b += ' Payback takes ' + when + ': workable, if cash flow can carry it.';
+    } else if (isFinite(ratio) && ratio >= 1 && o.payback === 0) out.b += ratio >= 2 ? ' The first sale alone recovers the acquisition cost, so growth largely funds itself.' : ' The first sale covers the acquisition cost, but repeat business adds little on top of it.';
     return out;
   }
 
@@ -1179,7 +1292,7 @@
     document.getElementById('o4s').textContent = Math.abs(fg) < 0.5 ? 'First sale\u2019s contribution just covers CAC' : 'First sale ' + (fg > 0 ? 'covers CAC with ' + money(fg) + ' to spare' : 'falls ' + money(-fg) + ' short of CAC');
     set('o5', money(o.after), o.after >= 0 ? 'pos' : 'neg');
     document.getElementById('o5s').textContent = 'Lifetime contribution minus CAC';
-    if (o.payback === null) { set('o7', 'Not within ' + i.n + ' yrs', 'neg'); document.getElementById('o7s').textContent = 'CAC isn’t recovered in this horizon'; }
+    if (o.payback === null) { set('o7', 'Not within ' + i.n + (i.n === 1 ? ' yr' : ' yrs'), 'neg'); document.getElementById('o7s').textContent = 'CAC isn’t recovered in this horizon'; }
     else if (o.payback === 0) { set('o7', 'First sale', 'pos'); document.getElementById('o7s').textContent = 'Recovered on the first transaction'; }
     else {
       var mo = Math.ceil(o.payback * 12);
@@ -1192,7 +1305,11 @@
     document.getElementById('vbody').textContent = v.b;
     drawChart(o, i);
   }
-  loadPreset('home');
+  // Optional industry link: ?industry=home-services | ecommerce | b2b
+  var IND = { 'home-services': ['home', 'home services'], 'ecommerce': ['ecom', 'eCommerce'], 'b2b': ['b2b', 'B2B services'] };
+  var ind = IND[(new URLSearchParams(location.search).get('industry') || '').toLowerCase()];
+  if (ind) document.getElementById('forLine').innerHTML = 'Written for <b>' + ind[1] + '</b> owners and leadership teams. The customer calculator starts with ' + ind[1] + ' numbers.';
+  loadPreset(ind ? ind[0] : 'home');
 
   /* ---------- stacked bars + reveal ---------- */
   function fillBars(scope){
